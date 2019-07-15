@@ -25,6 +25,7 @@ dependencies {
     testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.2.0'
 
     testCompile 'org.assertj:assertj-core:3.10.0'
+    testCompile 'org.mockito:mockito-core:2.0.57-beta'
 }
 
 test {

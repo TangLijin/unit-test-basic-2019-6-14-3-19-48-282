@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import static ExpenseService.Expense.ExpenseType.*;
 import static ExpenseService.Project.ProjectType.EXTERNAL;
 import static ExpenseService.Project.ProjectType.INTERNAL;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class ExpenseServiceTest {
     @Test
@@ -61,12 +63,16 @@ class ExpenseServiceTest {
     }
 
     @Test
-    void should_throw_unexpected_project_exception_if_project_is_invalid() {
+    void should_throw_unexpected_project_exception_if_project_is_invalid() throws UnexpectedProjectTypeException {
         // given
-
+//        Project project = new Project(EXTERNAL,"Project C");
+        Project project =mock (Project.class);
         // when
-        //ExpenseType result =  ExpenseService.getExpenseCodeByProjectTypeAndName(project);
-        // then
+//        ExpenseType result =  ExpenseService.getExpenseCodeByProjectTypeAndName(project);
+        //doThrow(new UnexpectedProjectTypeException("You enter invalid project type")).when(project).getProjectType() != INTERNAL
 
+        // then
+//        when(project.getProjectType() != INTERNAL && project.getProjectType() != EXTERNAL).thenThrow(new UnexpectedProjectTypeException("You enter invalid project type"));
+        when(ExpenseService.getExpenseCodeByProjectTypeAndName(project)).thenThrow(new UnexpectedProjectTypeException("You enter invalid project type"));
     }
 }
